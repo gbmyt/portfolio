@@ -43,7 +43,8 @@ const Header = () => {
               {link.title}
             </Link>
           ))}
-        <SearchButton />
+        {/* Replace when blog has posts  */}
+        {/* <SearchButton /> */}
         <ThemeSwitch />
         <MobileNav />
       </div>
