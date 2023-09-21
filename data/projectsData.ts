@@ -1,19 +1,21 @@
 const projectsData = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'Atelier eCommerce',
+    description: ``, // todo
+    imgSrc: '/static/images/atelier.png', // todo
+    href: 'https://www.google.com', // todo
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'Quiz Whiz',
+    description: `A quiz-taking platform for upskilling on a variety of topics.`,
+    imgSrc: '/static/images/quizwhiz.gif', // todo
+    href: 'http://35.91.223.95/',
+  },
+  {
+    title: 'FriendLink',
+    description: `A mobile-first platform for fostering a vibrant and diverse social network.`,
+    imgSrc: '/static/images/time-machine.jpg', // todo
+    href: '',
   },
 ]
 
