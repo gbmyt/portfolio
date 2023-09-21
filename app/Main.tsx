@@ -4,6 +4,7 @@ import AuthorLayout from '@/layouts/AuthorLayout'
 import { coreContent } from 'pliny/utils/contentlayer'
 import { genPageMetadata } from 'app/seo'
 import resumeData from '@/data/resumeData'
+import Resume from '@/components/Resume'
 
 export const metadata = genPageMetadata({ title: 'About' })
 
@@ -15,10 +16,7 @@ export default function Page() {
     <>
       <AuthorLayout content={mainContent}>
         <MDXLayoutRenderer code={author.body.code} />
-        <h2>Resume</h2>
-
-        {/* eslint-disable-next-line */}
-        <img src={resumeData.imgSrc} alt="Resume" className="border-solid border-2 border-white" />
+        <Resume />
       </AuthorLayout>
     </>
   )
