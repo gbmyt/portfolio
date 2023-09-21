@@ -6,7 +6,7 @@ export default function About() {
       <h2>Resume</h2>
 
       {/* eslint-disable-next-line */}
-      <img src={resumeData.imgSrc} alt="Resume" className="border-solid border-2 border-white" />
+      <img src={resumeData.imgSrc} alt="Resume" className="border-solid border-2 border-gray-300" />
     </>
   )
 }
