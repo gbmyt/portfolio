@@ -39,7 +39,7 @@ const Card = ({ title, description, imgSrc, href }) => (
           )}
         </h2>
         <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-        {href && (
+        {href ? (
           <Link
             href={href}
             className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
@@ -47,6 +47,13 @@ const Card = ({ title, description, imgSrc, href }) => (
           >
             Learn more &rarr;
           </Link>
+        ) : (
+          <p
+            className="text-base font-medium leading-6 text-gray-600"
+            aria-label={`${title} Coming Soon`}
+          >
+            Coming Soon
+          </p>
         )}
       </div>
     </div>

@@ -3,7 +3,7 @@ const projectsData = [
     title: 'Atelier eCommerce',
     description: ``, // todo
     imgSrc: '/static/images/atelier.png', // todo
-    href: 'https://www.google.com', // todo
+    href: 'https://github.com/rpp2209-fec-graviton/FECv2',
   },
   {
     title: 'Quiz Whiz',
@@ -11,9 +11,15 @@ const projectsData = [
     imgSrc: '/static/images/quizwhiz.gif', // todo
     href: 'http://35.91.223.95/',
   },
+  // {
+  //   title: 'FriendLink',
+  //   description: `A mobile-first platform for fostering a vibrant and diverse social network.`,
+  //   imgSrc: '/static/images/time-machine.jpg', // todo
+  //   href: '', // todo
+  // },
   {
-    title: 'FriendLink',
-    description: `A mobile-first platform for fostering a vibrant and diverse social network.`,
+    title: 'Pattern Pal',
+    description: `A Pattern Maker for Fiber Artists`,
     imgSrc: '/static/images/time-machine.jpg', // todo
     href: '',
   },
