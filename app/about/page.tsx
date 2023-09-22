@@ -13,7 +13,6 @@ export default function Page() {
   return (
     <>
       <AuthorLayout content={mainContent}>
-        <h2 className="text-xl">Typescript | React | PostgreSQL | Docker</h2>
         <MDXLayoutRenderer code={author.body.code} />
       </AuthorLayout>
     </>
