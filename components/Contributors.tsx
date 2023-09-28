@@ -13,7 +13,7 @@ type projectsDataType =
       repository: string
       contributorsHref: string
       contributors: {
-        [key: string]: string
+        [key: string]: { github: string; role: string }
       }
       href: string
     }
@@ -42,10 +42,11 @@ function Contributors() {
             <Link
               className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
               aria-label={`Link to ${c}'s Github Profile`}
-              href={`${contributors[c]}`}
+              href={`${contributors[c].github}`}
             >
               {c}
-            </Link>
+            </Link>{' '}
+            {contributors[c].role && ` | ${contributors[c].role}`}
           </div>
         ))}
     </>
