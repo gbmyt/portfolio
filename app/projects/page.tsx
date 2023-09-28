@@ -26,7 +26,7 @@ export default function Projects() {
                 imgSrc={d.imgSrc}
                 href={d.href}
                 repository={d.repository}
-                contributorsHref={`projects/${d.name}/${d.contributorsHref}`}
+                contributorsHref={`projects/${d.name}${d.contributorsHref}`}
                 contributors={d.contributors}
               />
             ))}

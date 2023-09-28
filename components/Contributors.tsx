@@ -22,8 +22,9 @@ type projectsDataType =
 function Contributors() {
   const [contributors, setContributors] = useState<projectsDataType>({})
   const pathname = usePathname()
-  const projectName = useMemo(() => /^\/projects\/(.+)\/contributors$/i, [])
-  const match: string | null = pathname.match(projectName)[1]
+  const re = useMemo(() => /^\/projects\/(.+)\/contributors$/i, [])
+  const projectName: RegExpMatchArray | null = pathname.match(re)
+  const match: string | null = projectName && projectName[1]
 
   useEffect(() => {
     for (const i in projectsData) {
