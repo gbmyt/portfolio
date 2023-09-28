@@ -6,7 +6,6 @@
     "start": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
-    "prebuild": "node prebuild.ts",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts"
@@ -42,6 +41,7 @@
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "4.37.4",
     "@svgr/webpack": "^8.0.1",
     "@types/mdx": "^2.0.5",
     "@types/react": "^18.2.14",
