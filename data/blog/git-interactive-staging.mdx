@@ -1,0 +1,30 @@
+---
+title: Interactive Staging with Git
+date: '2023-09-25'
+tags: ['git', 'interactive staging', 'version control']
+draft: true
+summary: 'How to use git add --patch to stage partial hunks.'
+---
+
+# Interactive Git Staging
+
+One of the things I've been focused on recently is learning to incorporate some of Git's more advanced capabilities into my workflow when making changes to a codebase from the command line-- whether it be on a team project or a private repo that only I am contributing to. One of my favorite things to do when learning a new technology or skill is to do everything in my power to master it completely and while I'm leagues away from "mastering" version control, now seemed like as good a time as any to give leveling up a shot.
+
+I started a couple weeks back by tackling my fear of `git rebase` (not so scary after some research and a great explanation of how rebasing works from Nina Zakharenko's Frontend Masters course **_["Git In-depth"](https://frontendmasters.com/courses/git-in-depth/)_**), but today I want to talk a little bit about interactive staging using `git add -p`, or `git add --patch`. Nina also covers this briefly in her Git course, which I can't recommend highly enough.
+
+It should be noted that you can also enter interactive staging mode with `git add -i`, but passing the `--patch` flag instead allows you to bypass the command screen you'll encounter when using the `-i` flag.
+
+## So What Is It For, Exactly?
+
+Per the Git Documentation, the `-p`, or more verbose `--patch` flag allows you to:
+
+_Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to the index._
+
+_This effectively runs add --interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See “Interactive mode” for details._
+
+## Some Additional Reading
+
+- [Interactive Staging](https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging)
+- [Git Add](https://git-scm.com/docs/git-add)
+
+This can be particularly helpful if you've made multiple changes across files and want to stage portions, or "hunks" of them to be commited while selectively ignoring others.
