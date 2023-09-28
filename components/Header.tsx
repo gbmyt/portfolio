@@ -10,14 +10,6 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between py-10">
       <div>
-        {/* <div className="flex items-center"> */}
-        {/* <Image
-          src="/static/images/profile-img.jpeg"
-          alt="avatar"
-          width={192}
-          height={192}
-          className="h-10 w-10 rounded-full object-cover"
-        /> */}
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="flex items-center justify-between">
             {typeof siteMetadata.headerTitle === 'string' ? (
