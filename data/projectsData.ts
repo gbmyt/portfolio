@@ -33,7 +33,7 @@ const projectsData = [
       'Benny Van': { github: 'https://github.com/bennyv8', role: 'Architect Owner' },
       'Thanh Ly': { github: 'https://github.com/thanhgly', role: 'Full Stack Software Engineer' },
       'San Chui': {
-        github: 'https://"github".com/Allen3021',
+        github: 'https://github.com/Allen3021',
         role: 'Full Stack Software Engineer',
       },
       'Patty Long': {
