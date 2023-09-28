@@ -1,7 +1,7 @@
 import Image from './Image'
 import Link from './Link'
 
-const Card = ({ title, description, imgSrc, href, repository }) => (
+const Card = ({ title, description, imgSrc, href, repository, contributorsHref, contributors }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div
       className={`${
@@ -72,7 +72,7 @@ const Card = ({ title, description, imgSrc, href, repository }) => (
           <Link
             href={repository}
             className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label={`Link to ${title}`}
+            aria-label={`Link to ${title}'s Github Repository`}
           >
             Check out the Repo &rarr;
           </Link>
@@ -93,6 +93,17 @@ const Card = ({ title, description, imgSrc, href, repository }) => (
           >
             Coming Soon
           </p>
+        )}
+        {contributors && contributorsHref && (
+          <div className="py-1">
+            <Link
+              href={contributorsHref}
+              className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              aria-label={`Link to a list of ${title}'s Contributors`}
+            >
+              Contributors &rarr;
+            </Link>
+          </div>
         )}
       </div>
     </div>
