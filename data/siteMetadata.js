@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Gabriela Taylor | Portfolio',
   author: 'Gabriela Taylor',
   headerTitle: 'Gabriela Taylor',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: 'Software Engineering Portfolio Site',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
