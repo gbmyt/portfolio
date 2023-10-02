@@ -28,9 +28,18 @@ const projectsData = [
     repository: 'https://github.com/potato-fixers/quiz-whiz',
     contributorsHref: '/contributors',
     contributors: {
-      'Gabriela Taylor': { github: 'https://github.com/gbmyt', role: 'UI Owner' },
-      'Tiger Hong': { github: 'https://github.com/tigerkh3', role: 'Product Manager' },
-      'Benny Van': { github: 'https://github.com/bennyv8', role: 'Architect Owner' },
+      'Gabriela Taylor': {
+        github: 'https://github.com/gbmyt',
+        role: 'UI Owner & Full Stack Software Engineer',
+      },
+      'Tiger Hong': {
+        github: 'https://github.com/tigerkh3',
+        role: 'Product Manager & Full Stack Software Engineer',
+      },
+      'Benny Van': {
+        github: 'https://github.com/bennyv8',
+        role: 'Architect Owner & Full Stack Software Engineer',
+      },
       'Thanh Ly': { github: 'https://github.com/thanhgly', role: 'Full Stack Software Engineer' },
       'San Chui': {
         github: 'https://github.com/Allen3021',
