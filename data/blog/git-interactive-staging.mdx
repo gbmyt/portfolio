@@ -2,15 +2,15 @@
 title: Interactive Staging with Git
 date: '2023-09-25'
 tags: ['git', 'interactive staging', 'version control']
-draft: true
-summary: 'How to use git add --patch to stage partial hunks.'
+draft: false
+summary: 'How to use Git Interactive Staging to stage changes in hunks.'
 ---
 
 # Interactive Git Staging
 
-One of the things I've been focused on recently is learning to incorporate some of Git's more advanced capabilities into my workflow when making changes to a codebase from the command line-- whether it be on a team project or a private repo that only I am contributing to. One of my favorite things to do when learning a new technology or skill is to do everything in my power to master it completely and while I'm leagues away from "mastering" version control, now seemed like as good a time as any to give leveling up a shot.
+Recently, I've been focused on learning to incorporate some of Git's more advanced capabilities into my workflow when making changes to a codebase from the command line-- whether it be on a team project or a private repo that only I am contributing to. One of my favorite things to do when learning a new technology or skill is to strive for complete mastery, whether that's a plausible feat or not.
 
-I started a couple weeks back by tackling my fear of `git rebase` (not so scary after some research and a great explanation of how rebasing works from Nina Zakharenko's Frontend Masters course **_["Git In-depth"](https://frontendmasters.com/courses/git-in-depth/)_**), but today I want to talk a little bit about interactive staging using `git add -p`, or `git add --patch`. Nina also covers this briefly in her Git course, which I can't recommend highly enough.
+I started a couple weeks back by tackling my fear of `git rebase` - not so scary after some research and a great explanation of how rebasing works from Nina Zakharenko's Frontend Masters course: **[Git In-depth](https://frontendmasters.com/courses/git-in-depth/)** - but today I want to talk a little bit about interactive staging using `git add -p`, or `git add --patch`. Nina also covers this briefly in her Git course, which I can't recommend highly enough.
 
 It should be noted that you can also enter interactive staging mode with `git add -i`, but passing the `--patch` flag instead allows you to bypass the command screen you'll encounter when using the `-i` flag.
 
@@ -18,13 +18,68 @@ It should be noted that you can also enter interactive staging mode with `git ad
 
 Per the Git Documentation, the `-p`, or more verbose `--patch` flag allows you to:
 
-_Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to the index._
+```
+Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to the index.
 
-_This effectively runs add --interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See “Interactive mode” for details._
+This effectively runs add --interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See “Interactive mode” for details.
+```
+
+This can be particularly helpful if you've made multiple changes across files and want to stage portions, or "hunks" of them to be commited while selectively ignoring others.
+
+For example, in a single file you could make some changes to your code that you'd like to commit and also add a few 'TODO' comments-- noting changes you'd like to make down the line. Using `git add -p` you can selectively stage the hunk that contains your code changes to the staging area while simultaneously excluding the 'TODO' comments **from the same file**, leaving them in your code locally to be addressed later on.
+
+## Edit Your Hunks Before Staging
+
+Another feature of Interactive Staging Mode that I'd like to address is the option to Edit your hunks before staging them, using the `"e"` option. This is a feature that I didn't fully understand when I first attempted interactive staging, but is powerful (and fun to use!) once you get the hang of it.
+
+After entering Interactive Staging mode, you'll be able to view the number of hunks ready for staging as well as perform actions such as: stage the current hunk (with `y`), skip the current hunk without staging it (with `n`), or view your available options by pressing `?`.
+
+```
+(1/2) Stage this hunk [y,n,q,a,d,j,J,g,/,s,e,?]?
+```
+
+From this menu you can press `"e"` to enter 'Edit' mode, which will bring you to a menu that displays the current hunk's diff, followed by the changes you made (changes prefaced with `"+"` are lines that were added and changes prefaced with `"-"` are lines that were removed), as well as the following message:
+
+```
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+# If the patch applies cleanly, the edited hunk will immediately be marked for staging.
+# If it does not apply cleanly, you will be given an opportunity to
+# edit again. If all lines of the hunk are removed, then the edit is
+# aborted and the hunk is left unchanged.
+```
+
+As the message notes, you can modify the hunk before staging it for commit-- for example you can remove a newly added change by deleting the entire `"+"` prefaced line, and then saving and exiting your editor.
+
+**_A few important things to note when editing your hunks:_**
+
+- When removing `"-"` lines is that you must preface them with a space (`" "`) instead of deleting the line entirely like you would with a `"+"` line, or you will trigger an error when trying to save and return to the Interactive Staging area.
+
+```
+(1/1) Stage this hunk [y,n,q,a,d,s,e,?]? e
+
+error: patch failed: data/blog/git-interactive-staging.mdx:18
+error: data/blog/git-interactive-staging.mdx: patch does not apply
+error: 'git apply --cached' failed
+
+Your edited hunk does not apply. Edit again (saying "no" discards!) [y/n]?
+```
+
+- _Deleting a line from a hunk while in edit mode **WILL NOT REVERT THE CHANGE in your local work tree**._ All this action does is remove the line from being staged as part of the current hunk. After you save and exit your editor the rest of the hunk will be added to your staging area for commit while the removed line will remain in your local work tree. This functionality was a source of great confusion and frustration when I was first learning how to use Git's Interactive Staging feature, but can be really useful once understood.
+
+## Inspecting Your Staged Changes
+
+Once you've finished up selecting, editing, and staging your hunks you may want to review the changes you just made to confirm the correct hunks were staged or left in your local work tree. Git provides a few handy utilities that can help you inspect the hunks you added/excluded using the `diff` command. By passing the filename you wish to inspect along with the `--staged` flag to the `git diff` command you can view the changes that were successfully staged for commit, or you can choose to pass just the filename without the '--staged' flag to view the hunks that were left in your local worktree.
+
+`git diff <FILENAME>`: View the changes that were NOT staged as part of `git add -p`
+
+`git diff --staged <FILENAME>`: View the changes that WERE staged as part of `git add -p`
+
+✫・゜・。. ゜゜・。.・゜✭・
 
 ## Some Additional Reading
 
 - [Interactive Staging](https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging)
 - [Git Add](https://git-scm.com/docs/git-add)
-
-This can be particularly helpful if you've made multiple changes across files and want to stage portions, or "hunks" of them to be commited while selectively ignoring others.
