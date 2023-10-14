@@ -38,7 +38,7 @@ export default function About() {
           priority
           src={resumeData.imgSrc}
           alt="Resume"
-          className=" border-solid border-2 border-gray-300"
+          className="hover:cursor-zoom-in border-solid border-2 border-gray-300"
           width="1200"
           height="1700"
         />
@@ -49,7 +49,7 @@ export default function About() {
             onKeyDown={(e) => e.key === 'Escape' && setOpen(false)}
             src={resumeData.imgSrc}
             alt="Resume"
-            className="border-solid border-2 border-red"
+            className="hover:cursor-zoom-out border-solid border-2"
             width="1200"
             height="1700"
           />
