@@ -8,7 +8,7 @@ const Card = ({ title, description, imgSrc, href, repository, contributorsHref, 
         imgSrc && 'h-full'
       }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
     >
-      {imgSrc && imgSrc.substr(imgSrc.length - 4) === '.gif' && href ? (
+      {imgSrc && imgSrc.substr(imgSrc.length - 4) === '.gif' ? (
         <Link href={href} aria-label={`Link to ${title}`}>
           <Image
             unoptimized={true}
