@@ -60,6 +60,14 @@ const projectsData = [
     contributorsHref: '',
     href: '',
   },
+  {
+    title: 'White Elephant Gift Exchange',
+    description: `White Elephant Gift Exchange Mobile App | WWC App Deploy 2023`,
+    imgSrc: '/static/images/white-elephant.gif',
+    repository: 'https://github.com/gbmyt/white-elephant',
+    contributorsHref: '',
+    href: '',
+  },
 ]
 
 export default projectsData
